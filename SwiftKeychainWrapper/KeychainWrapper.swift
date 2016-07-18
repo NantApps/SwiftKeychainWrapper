@@ -205,8 +205,8 @@ public class KeychainWrapper {
 
         keychainQueryDictionary[SecValueData] = value
 
-        // Protect the keychain entry so it's only valid when the device is unlocked
-        keychainQueryDictionary[SecAttrAccessible] = kSecAttrAccessibleWhenUnlocked
+        // Always allow access to the keychain
+        keychainQueryDictionary[SecAttrAccessible] = kSecAttrAccessibleAlways
 
         let status: OSStatus = SecItemAdd(keychainQueryDictionary, nil)
 
